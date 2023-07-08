@@ -25,7 +25,7 @@ export class PostsListComponent implements OnInit {
         this.isLoading = false;
         console.error(`Error: ${err}`);
        } 
-        
+       
       })
     }
 
