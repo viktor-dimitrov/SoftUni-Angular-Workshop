@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Theme } from '../types/themes';
+import { UserService } from '../user/user.service';
 
 
 
@@ -15,7 +16,12 @@ export class ThemesListComponent implements OnInit{
   isLoading: boolean = true;
 
   
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private userService: UserService) {}
+
+
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
 
   ngOnInit(): void {
     this.apiService.getThemes().subscribe({
